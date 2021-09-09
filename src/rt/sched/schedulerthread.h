@@ -232,7 +232,7 @@ namespace verona::rt
     void run_inner(void (*startup)(Args...), Args... args)
     {
       Systematic::cout() << "Running thread " << this << " id " << this->systematic_id << " with startup " << startup << Systematic::endl;
-      startup(args...);
+      //startup(args...);
 
       Scheduler::local() = this;
       alloc = &ThreadAlloc::get();
