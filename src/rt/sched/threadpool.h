@@ -292,7 +292,7 @@ namespace verona::rt
       while (true)
       {
         t->systematic_id = count;
-        Systematic::cout() << "Assigned id " << t->systematic_id << "to thread" << Systematic::endl;
+        Systematic::cout() << "Assigned id " << t->systematic_id << " to thread" << Systematic::endl;
 #ifdef USE_SYSTEMATIC_TESTING
         t->systematic_speed_mask =
           (8ULL << (Systematic::get_prng_next() % 4)) - 1;
@@ -332,6 +332,7 @@ namespace verona::rt
         Systematic::cout() << "Starting all threads" << Systematic::endl;
         do
         {
+          Systematic::cout() << "Starting thread "  << t << " with id " << t->systematic_id << Systematic::endl;
           builder.add_thread(&T::run, t, startup, args...);
           t = t->next;
         } while (t != first_thread);
