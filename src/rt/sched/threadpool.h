@@ -292,6 +292,7 @@ namespace verona::rt
       while (true)
       {
         t->systematic_id = count;
+        Systematic::cout() << "Assigned id " << t->systematic_id << "to thread" << Systematic::endl;
 #ifdef USE_SYSTEMATIC_TESTING
         t->systematic_speed_mask =
           (8ULL << (Systematic::get_prng_next() % 4)) - 1;
