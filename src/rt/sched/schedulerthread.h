@@ -231,6 +231,7 @@ namespace verona::rt
     template<typename... Args>
     void run_inner(void (*startup)(Args...), Args... args)
     {
+      Systematic::cout() << "Running thread " << this << " id " << this->systematic_id << " with startup " << startup << Systematic::endl;
       startup(args...);
 
       Scheduler::local() = this;
