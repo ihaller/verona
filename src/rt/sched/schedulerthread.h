@@ -229,7 +229,7 @@ namespace verona::rt
      * This is used for initialising the interpreters per-thread data-structures
      **/
     template<typename... Args>
-    void run_inner(void (*startup)(Args...), Args... args)
+    void run_inner(void (*startup)(Args...), Args...)
     {
       Systematic::cout() << "Running thread " << this << " id " << this->systematic_id << " with startup " << startup << Systematic::endl;
       //startup(args...);
